@@ -6,9 +6,9 @@ import java.util.Date;
 
 public class Product {
     private int id;
-    private String name;
-    private String type;
-    private String location;
+    private final String name;
+    private final String type;
+    private final String location;
     private Date warrantyExpirationDate;
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -51,7 +51,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", location='" + location + '\'' +

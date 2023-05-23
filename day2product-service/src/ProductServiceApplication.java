@@ -1,7 +1,6 @@
 import model.Product;
 import service.ProductService;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 public class ProductServiceApplication {
@@ -31,23 +30,28 @@ public class ProductServiceApplication {
         productService.addProduct(new Product("iPhone Charger", "power", "Second Drawer", "2020-12-10"));
 
         // 2. Get all products
-//        Stream<Product> allProducts = productService.getAllProducts();
-//        allProducts.forEach(System.out::println);
+        System.out.println("\n\nAll Products");
+        Stream<Product> allProducts = productService.getAllProducts();
+        allProducts.forEach(System.out::println);
 
         // 3. Get Product using name (exact match ignoring casing)
-//        Product product = productService.findByName("Samsung Charger");
-//        System.out.println(product);
+        System.out.println("\n\nSamsung Charger");
+        Product product = productService.findByName("Samsung Charger");
+        System.out.println(product);
 
         // 4. Get Product by location
-//        Stream<Product> products = productService.findByLocation("Brown Table");
-//        products.forEach(System.out::println);
+        System.out.println("\n\nProducts by location");
+        Stream<Product> products = productService.findByLocation("Brown Table");
+        products.forEach(System.out::println);
 
         // 5. Get Product by name, type, location (substring match)
-//        Stream<Product> products = productService.findByText("laptop");
-//        products.forEach(System.out::println);
+        System.out.println("\n\nProducts by text search");
+        products = productService.findByText("laptop");
+        products.forEach(System.out::println);
 
         // 6. Get out of warranty products
-        Stream<Product> products = productService.findOutOfWarrantyProducts();
+        System.out.println("\n\nProducts with warranty expired");
+        products = productService.findOutOfWarrantyProducts();
         products.forEach(System.out::println);
     }
 }
