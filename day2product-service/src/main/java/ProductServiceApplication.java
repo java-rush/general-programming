@@ -46,7 +46,7 @@ public class ProductServiceApplication {
 
         // 5. Get Product by name, type, location (substring match)
         System.out.println("\n\nProducts by text search");
-        products = productService.findByText("laptop");
+        products = productService.findByText("Drawer");
         products.forEach(System.out::println);
 
         // 6. Get out of warranty products
