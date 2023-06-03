@@ -1,0 +1,64 @@
+<mat-toolbar>
+  <span>{{ title }}</span>
+</mat-toolbar>
+
+<div>
+  <button mat-raised-button color="primary" (click)="getAllProducts()">
+    View all products
+  </button>
+</div>
+<br />
+<div><app-add-product></app-add-product></div>
+<br />
+<div>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="getWarrantyExpiredProducts()"
+  >
+    View all products with expired warranty
+  </button>
+</div>
+<br />
+<div>
+  <mat-form-field class="product-name-form-field">
+    <mat-label>Product name</mat-label>
+    <input matInput type="text" [(ngModel)]="productName" />
+    <button
+      *ngIf="productName"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="productName = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  &nbsp;
+  <button mat-raised-button color="primary" (click)="getProductByName()">
+    Get product
+  </button>
+</div>
+
+<br />
+<div>
+  <mat-form-field class="text-form-field">
+    <mat-label>Name / Type / Location</mat-label>
+    <input matInput type="text" [(ngModel)]="productText" />
+    <button
+      *ngIf="productText"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="productText = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  &nbsp;
+  <button mat-raised-button color="primary" (click)="getProductsByText()">
+    Search products
+  </button>
+</div>
+
+<app-product-list [products]="products"></app-product-list>

@@ -1,0 +1,60 @@
+<mat-form-field class="text-form-field">
+  <mat-label>Name</mat-label>
+  <input matInput type="text" [(ngModel)]="product.name" />
+  <button
+    *ngIf="product.name"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="product.name = ''"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+&nbsp;
+<mat-form-field class="text-form-field">
+  <mat-label>Type</mat-label>
+  <input matInput type="text" [(ngModel)]="product.type" />
+  <button
+    *ngIf="product.type"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="product.type = ''"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+&nbsp;
+<mat-form-field class="text-form-field">
+  <mat-label>Location</mat-label>
+  <input matInput type="text" [(ngModel)]="product.location" />
+  <button
+    *ngIf="product.location"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="product.location = ''"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+&nbsp;
+<mat-form-field class="date-form-field" color="accent">
+  <mat-label>Warranty</mat-label>
+  <input
+    matInput
+    [matDatepicker]="warranty_picker"
+    [(ngModel)]="product.warranty"
+  />
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle
+    matIconSuffix
+    [for]="warranty_picker"
+  ></mat-datepicker-toggle>
+  <mat-datepicker #warranty_picker></mat-datepicker>
+</mat-form-field>
+&nbsp;
+<button mat-raised-button color="primary" (click)="addProduct()">
+  Add product
+</button>
